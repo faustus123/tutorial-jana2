@@ -32,6 +32,11 @@ curl --location https://get.epic-eic.org | bash
 singularity exec /cvmfs/singularity.opensciencegrid.org/eicweb/jug_xl:nightly eic-shell
 
 ```
+Once inside the eic-shell, you should source the geometry setup script since this is not done by default.
+
+```
+source /opt/detector/setup.sh
+```
 
 Next, clone the EICrecon repository. In the future, you may want to work with a prebuilt EICrecon that comes
 with eic-shell. For now though, it is better to just clone the whole repository so you can modify it and
@@ -67,7 +72,7 @@ Use the commands above to setup your working directory and build *EICrecon*.
 ## How do I run *eicrecon*?
 
 *eicrecon* is the main reconstruction executable. To run it though, you should add it to your PATH and set up
-any other environment parameters needed. Do this by sourcing the @eicrecon-this.sh@ file that should have been
+any other environment parameters needed. Do this by sourcing the "eicrecon-this.sh" file that should have been
 created and installed in the previous step. Once you have done that, run eicrecon with no arguments to see that
 it is found and prints the usage statement.
 
@@ -107,9 +112,9 @@ The usage statement gives several command line options. Two of the most importan
 *"-l"* and *"-Pkey=value"* options. Both of these allow you to set *configuration parameters*
 in the job. These are how you can modify the behavior of the job. Configuration parameters
 will pretty much always have default values set by algorithm authors so it is often not necessary
-to set this yourself. If you need to though, these are how you do it. Use the @"-Pkey=value"@
+to set this yourself. If you need to though, these are how you do it. Use the "-Pkey=value"
 form if you want to set the value directly on the command line. You may pass mutiple options like
-this. The @"-l"@ option is used to specify a configuration file where you may set a large number
+this. The "-l" option is used to specify a configuration file where you may set a large number
 of values. The file format is one parameter per line with one or more spaces separating the
 configuration parameter name and its value. Empty lines are OK and "#" can be used to specify
 comments.
@@ -130,7 +135,7 @@ wget https://eicaidata.s3.amazonaws.com/2022-09-04_pgun_e-_podio-0.15_edm4hep-0.
 
 ### Exercise 3:
 
-Run @eicrecon@ over your simulated data file by giving it as an argument to the program.
+Run `eicrecon` over your simulated data file by giving it as an argument to the program.
 e.g.
 
 ```console
